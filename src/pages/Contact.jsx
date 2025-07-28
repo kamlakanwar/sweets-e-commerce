@@ -6,9 +6,9 @@ const Contact = () => {
   return (
     <div className="flex flex-col h-screen items-center justify-center max-w-4xl mx-auto">
       <div className="flex items-center justify-center gap-4 mb-6">
-        <div className="h-0.5 bg-gray-500 w-40"></div>
+        <div className="h-0.5 bg-gray-500 w-20"></div>
         <h2 className="text-3xl font-bold text-gray-800">CONTACT US</h2>
-        <div className="h-0.5 bg-gray-500 w-40"></div>
+        <div className="h-0.5 bg-gray-500 w-20"></div>
       </div>
 
       <p className="text-lg text-gray-600 mb-8">

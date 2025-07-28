@@ -7,10 +7,11 @@ const Home = () => {
   return (
     <div>
       <img
-        src={BannerImg}
-        alt="banner-img"
-        className=" md:w-full h-[80vh] object-cover"
+      src={BannerImg}
+      alt="banner-img"
+      className="w-full h-[40vh] sm:h-[50vh] md:h-[80vh] object-cover"
       />
+
       <Cards productData={ProductData}/>
     </div>
   )

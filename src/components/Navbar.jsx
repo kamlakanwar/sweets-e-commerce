@@ -1,66 +1,79 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { FiMenu, FiX } from 'react-icons/fi';
+import React, { useContext} from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { FiMenu, FiX, FiShoppingCart } from 'react-icons/fi';
 import Logo from '../assets/logo.png';
+import { AppContext } from '../Context/AppContext'
+
+
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [loggedIn, setIsLoggedIn] = useState(false);''
+  const { cartItems , loggedIn, setIsLoggedIn, isOpen, setIsOpen} = useContext(AppContext);
+
+ 
+  const navigate = useNavigate();
+
+
   const toggleMenu = () => setIsOpen(!isOpen);
 
- useEffect(() =>{
-    const item = localStorage.getItem("formData");
-      setIsLoggedIn( item ? true : false);
-  },[loggedIn])
 
-  console.log(loggedIn)
+  const handleAuthClick = () => {
+    if (loggedIn) {
+      localStorage.removeItem("formData");
+      setIsLoggedIn(false);
+      navigate('/');
+    } else {
+      navigate('/Login');
+    }
+  };
 
   return (
-    <div className="bg-white shadow-md py-3 flex items-center justify-around relative">
+    <div className="bg-white shadow-md py-3 px-4 md:px-12 flex items-center justify-between relative">
       {/* Logo */}
       <Link to="/">
-        <img src={Logo} alt="logo" loading="lazy" className="h-15 w-15" />
+        <img src={Logo} alt="logo" loading="lazy" className="h-13 w-14 ml-5" />
       </Link>
 
-      {/* Hamburger Icon */}
-      <div className="md:hidden text-2xl cursor-pointer" onClick={toggleMenu}>
-        {isOpen ? <FiX /> : <FiMenu />}
-      </div>
-
-      {/* Nav Links - Desktop */}
+      {/* Desktop Nav */}
       <nav className="hidden md:flex gap-6 items-center">
         <Link to="/" className="text-gray-700 hover:text-gray-600 font-medium">Home</Link>
         <Link to="/products" className="text-gray-700 hover:text-gray-600 font-medium">Products</Link>
         <Link to="/contact" className="text-gray-700 hover:text-gray-600 font-medium">Contact</Link>
-    <Link
-  to="/login"
-  onClick={() => {
-    if (loggedIn) {
-      localStorage.removeItem("formData");
-    }
-  }}
-  className="text-gray-700 hover:text-gray-600 font-medium"
->
-  {loggedIn ? "Logout" : "Login"}
-</Link>
-  </nav>
-        <Link to="/">
-          <button className="bg-amber-200 cursor-pointer rounded-xl px-4 py-2 text-gray-800 font-semibold hover:bg-amber-300 transition">
-            Order Now
-          </button>
+
+        <button
+          onClick={handleAuthClick}
+          className="bg-yellow-600 cursor-pointer text-white py-1 px-4 rounded hover:bg-yellow-700 mr-5"
+        >
+          {loggedIn ? "Logout" : "Login"}
+        </button>
+
+        <Link to="/cart" className="text-gray-800 hover:text-amber-500 text-2xl hidden md:flex mr-10">
+          <FiShoppingCart className="cursor-pointer" onClick={() => navigate("/Cart")} />
+          <span className="ml-1 text-sm">({cartItems.length})</span>
         </Link>
+      </nav>
+
+      {/* Hamburger Icon (Mobile) */}
+      <div className="md:hidden text-2xl cursor-pointer" onClick={toggleMenu}>
+        {isOpen ? <FiX /> : <FiMenu />}
+      </div>
+      
+
       {/* Mobile Menu */}
       {isOpen && (
         <div className="absolute top-full left-0 w-full bg-white shadow-md flex flex-col gap-4 px-6 py-4 md:hidden z-10">
           <Link to="/" onClick={toggleMenu} className="text-gray-700 hover:text-gray-600 font-medium">Home</Link>
           <Link to="/products" onClick={toggleMenu} className="text-gray-700 hover:text-gray-600 font-medium">Products</Link>
           <Link to="/contact" onClick={toggleMenu} className="text-gray-700 hover:text-gray-600 font-medium">Contact</Link>
-          <Link to="/login" onClick={toggleMenu} className="text-gray-700 hover:text-gray-600 font-medium">{loggedIn ? "Logout" : "Login"}</Link>
-          <Link to="/" onClick={toggleMenu}>
-            <button className="bg-amber-200  cursor-pointer rounded-xl px-4 py-2 text-gray-800 font-semibold hover:bg-amber-300 transition">
-              Order Now
-            </button>
-          </Link>
+
+          <button
+            onClick={() => {
+              handleAuthClick();
+              toggleMenu();
+            }}
+            className="bg-yellow-300 text-white py-2 rounded hover:bg-yellow-700 transition"
+          >
+            {loggedIn ? "Logout" : "Login"}
+          </button>
         </div>
       )}
     </div>

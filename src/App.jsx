@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router-dom'; 
 import Navbar from "./components/Navbar";
@@ -7,27 +7,27 @@ import Products from './pages/Products';
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import Footer from "./components/Footer";
-import {ProductData} from "./data"
-
+import Spinner from './components/Spinner';
+import { AppContext } from './Context/AppContext';
+import Cart from './pages/Cart';
 
 function App() {
-   const [isLoggedIn, setIsLoggedIn] = useState(false);
-   console.log(isLoggedIn)
+  const { loading } = useContext(AppContext); 
 
-   useEffect(() =>{
-    const item = localStorage.getItem("formData");
-    setIsLoggedIn( item ? true : false);
-  },[])
+   if (loading) {
+    return <Spinner />; 
+  }
 
   return (
     <>
       <Navbar />
-
+      
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Products" element={<Products ProductData={ProductData} />} />
+        <Route path="/" element={ <Home />} />
+        <Route path="/Products" element={<Products />} />
         <Route path="/Contact" element={<Contact />} />
-        <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
+        <Route path="/login" element={<Login />} />
+        <Route path='/Cart' element={<Cart add />} />
       </Routes>
 
       <Footer />
