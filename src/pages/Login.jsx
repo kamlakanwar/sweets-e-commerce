@@ -54,7 +54,7 @@ const Login = ({ setIsLoggedIn }) => {
   return (
     <form
       onSubmit={submitHandler}
-      className="flex flex-col w-full max-w-md mx-auto gap-y-4 mt-6 bg-white p-6 rounded shadow m-10"
+      className="flex flex-col w-full max-w-md mx-auto gap-y-4 m-10 bg-white p-6 rounded shadow"
     >
       {/* Name */}
       <label className="w-full">
