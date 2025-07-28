@@ -11,7 +11,7 @@ const Contact = () => {
         <div className="h-0.5 bg-gray-500 w-20"></div>
       </div>
 
-      <p className="text-lg text-gray-600 mb-8">
+      <p className="text-lg text-gray-600 mb-8 text-center">
         We would love to hear from you! Share your thoughts and queries with us.
       </p>
 
