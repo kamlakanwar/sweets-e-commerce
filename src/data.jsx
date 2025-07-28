@@ -1,15 +1,15 @@
-import matka from "./assets/matkakulfi.jpg";
-import chumchum from "./assets/chum_chum.jpg";
-import laddu from "./assets/laddu.jpg";
+import matka from "./assets/Matkakulfi.jpg";
+import chumchum from "./assets/Chum_chum.jpg";
+import laddu from "./assets/Laddu.jpg";
 import amriti from "./assets/Amriti.jpeg";
 import rabri from "./assets/Rabri.jpg";
-import sohanpapdi from "./assets/sohan-papdi.jpg";
+import sohanpapdi from "./assets/Sohan-papdi.jpg";
 import rasmalai from "./assets/Rasmalai.jpg";
 import kajukatli from "./assets/Kajukatli.jpg";
 import shrikhand from "./assets/Shrikhand.jpg";
 import peda from "./assets/Peda.jpg";
 import aamras from "./assets/Aamras.jpeg";
-import gulabjamun from "./assets/gulab-jamun.jpg";
+import gulabjamun from "./assets/Gulab-jamun.jpg";
 
 export const ProductData = [
   {

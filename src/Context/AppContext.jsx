@@ -14,7 +14,7 @@ function AppContextProvider({ children }) {
       if (Array.isArray(storedCart)) {
         setCartItems(storedCart);
       }
-    } catch (error) {
+    } catch {
       setCartItems([]);
     }
   }, []);
