@@ -52,7 +52,11 @@ const Navbar = () => {
         {isOpen ? <FiX /> : <FiMenu />}
       </div>
       
-
+  <Link to="/cart" className="text-gray-800 hover:text-amber-500 text-2xl hidden md:flex mr-10">
+          <FiShoppingCart className="cursor-pointer" onClick={() => navigate("/Cart")} />
+          <span className="ml-1 text-sm">({cartItems.length})</span>
+        </Link>
+      
       {/* Mobile Menu */}
       {isOpen && (
         <div className="absolute top-full left-0 w-full bg-white shadow-md flex flex-col gap-4 px-6 py-4 md:hidden z-10">
@@ -70,11 +74,6 @@ const Navbar = () => {
             {loggedIn ? "Logout" : "Login"}
           </button>
         </div>
-
-      <Link to="/cart" className="text-gray-800 hover:text-amber-500 text-2xl hidden md:flex mr-10">
-          <FiShoppingCart className="cursor-pointer" onClick={() => navigate("/Cart")} />
-          <span className="ml-1 text-sm">({cartItems.length})</span>
-        </Link>
       )}
     </div>
   );
