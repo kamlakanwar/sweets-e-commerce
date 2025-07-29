@@ -79,7 +79,6 @@ const Navbar = () => {
 
         <Link to="/cart" className="text-gray-800 hover:text-amber-500 text-2xl md:flex mr-10">
           <FiShoppingCart className="cursor-pointer" onClick={() => navigate("/Cart")} />
-          <span className="ml-1 text-sm">({cartItems.length})</span>
         </Link>
     </div>
   );
