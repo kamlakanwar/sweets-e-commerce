@@ -33,13 +33,15 @@ const Cart = () => {
                 alt="cart-img"
                 className="w-full sm:w-[15rem] h-[12rem] object-cover rounded-md"
               />
-              <div className='flex flex-col justify-between gap-4'>
+              <div className='flex flex-col justify-between gap-4 w-full'>
                 <div>
                   <h1 className="font-semibold text-xl sm:text-2xl">{item.title}</h1>
                   <p className="text-sm sm:text-base">Quantity: {item.quantity}</p>
                   <p className="text-sm sm:text-base">Price: ₹{item.price}</p>
                 </div>
-                <div className='flex flex-col sm:flex-row items-start sm:items-center gap-4'>
+
+                {/* Button and Delete icon in same row */}
+                <div className='flex flex-row items-center gap-6'>
                   <button
                     className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition"
                     onClick={() => {
@@ -55,6 +57,7 @@ const Cart = () => {
                     <MdDelete />
                   </span>
                 </div>
+
               </div>
             </li>
           ))}
