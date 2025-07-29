@@ -45,6 +45,10 @@ const Navbar = () => {
         >
           {loggedIn ? "Logout" : "Login"}
         </button>
+          <Link to="/cart" className="text-gray-800 hover:text-amber-500 text-2xl md:flex mr-10">
+          <FiShoppingCart className="cursor-pointer" onClick={() => navigate("/Cart")} />
+          <span className="ml-1 text-sm">({cartItems.length})</span>
+        </Link>
       </nav>
 
       {/* Hamburger Icon (Mobile) */}
@@ -52,10 +56,6 @@ const Navbar = () => {
         {isOpen ? <FiX /> : <FiMenu />}
       </div>
       
-  <Link to="/cart" className="text-gray-800 hover:text-amber-500 text-2xl hidden md:flex mr-10">
-          <FiShoppingCart className="cursor-pointer" onClick={() => navigate("/Cart")} />
-          <span className="ml-1 text-sm">({cartItems.length})</span>
-        </Link>
       
       {/* Mobile Menu */}
       {isOpen && (
