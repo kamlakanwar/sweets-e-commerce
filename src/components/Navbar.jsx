@@ -38,18 +38,19 @@ const Navbar = () => {
         <Link to="/" className="text-gray-700 hover:text-gray-600 font-medium">Home</Link>
         <Link to="/products" className="text-gray-700 hover:text-gray-600 font-medium">Products</Link>
         <Link to="/contact" className="text-gray-700 hover:text-gray-600 font-medium">Contact</Link>
-
+         <Link to="/cart" className="text-gray-800 hover:text-amber-500 text-2xl md:flex mr-10">
+          <FiShoppingCart className="cursor-pointer" onClick={() => navigate("/Cart")} />
+          <span className="ml-1 text-sm">({cartItems.length})</span>
+        </Link>
         <button
           onClick={handleAuthClick}
           className="bg-yellow-600 cursor-pointer text-white py-1 px-4 rounded hover:bg-yellow-700 mr-5"
         >
           {loggedIn ? "Logout" : "Login"}
         </button>
-          <Link to="/cart" className="text-gray-800 hover:text-amber-500 text-2xl md:flex mr-10">
-          <FiShoppingCart className="cursor-pointer" onClick={() => navigate("/Cart")} />
-          <span className="ml-1 text-sm">({cartItems.length})</span>
-        </Link>
+         
       </nav>
+
 
       {/* Hamburger Icon (Mobile) */}
       <div className="md:hidden text-2xl cursor-pointer" onClick={toggleMenu}>
@@ -63,7 +64,7 @@ const Navbar = () => {
           <Link to="/" onClick={toggleMenu} className="text-gray-700 hover:text-gray-600 font-medium">Home</Link>
           <Link to="/products" onClick={toggleMenu} className="text-gray-700 hover:text-gray-600 font-medium">Products</Link>
           <Link to="/contact" onClick={toggleMenu} className="text-gray-700 hover:text-gray-600 font-medium">Contact</Link>
-
+          
           <button
             onClick={() => {
               handleAuthClick();
@@ -75,6 +76,11 @@ const Navbar = () => {
           </button>
         </div>
       )}
+
+        <Link to="/cart" className="text-gray-800 hover:text-amber-500 text-2xl md:flex mr-10">
+          <FiShoppingCart className="cursor-pointer" onClick={() => navigate("/Cart")} />
+          <span className="ml-1 text-sm">({cartItems.length})</span>
+        </Link>
     </div>
   );
 };
