@@ -73,18 +73,6 @@ const Navbar = () => {
           <Link to="/products" onClick={toggleMenu} className="text-gray-700 hover:text-gray-600 font-medium">Products</Link>
           <Link to="/contact" onClick={toggleMenu} className="text-gray-700 hover:text-gray-600 font-medium">Contact</Link>
 
-          {/* Cart in mobile menu */}
-          <div
-            onClick={() => {
-              toggleMenu();
-              navigate("/Cart");
-            }}
-            className="flex items-center gap-2 text-gray-800 hover:text-amber-500 text-lg cursor-pointer"
-          >
-            <FiShoppingCart />
-            <span>Cart ({cartItems.length})</span>
-          </div>
-
           <button
             onClick={() => {
               handleAuthClick();
