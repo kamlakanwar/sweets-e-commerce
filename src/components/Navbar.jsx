@@ -51,14 +51,24 @@ const Navbar = () => {
         </button>
       </nav>
 
-      {/* Hamburger Icon (Mobile) */}
-      <div className="md:hidden text-2xl cursor-pointer" onClick={toggleMenu}>
-        {isOpen ? <FiX /> : <FiMenu />}
+            <div className="flex items-center gap-4 md:hidden">
+        <div
+          onClick={() => navigate("/Cart")}
+          className="flex items-center cursor-pointer text-gray-800 hover:text-amber-500 text-2xl"
+        >
+          <FiShoppingCart />
+          <span className="ml-1 text-sm">({cartItems.length})</span>
+        </div>
+      
+        {/* Hamburger Icon */}
+        <div className="text-2xl cursor-pointer" onClick={toggleMenu}>
+          {isOpen ? <FiX /> : <FiMenu />}
+        </div>
       </div>
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="absolute top-full left-0 w-full bg-white shadow-md flex flex-col gap-4 px-6 py-4 md:hidden z-10">
+        <div className="absolute top-full left-0 w-full bg-white shadow-md flex flex-col gap-3 px-4 py-3 md:hidden z-10 text-sm">
           <Link to="/" onClick={toggleMenu} className="text-gray-700 hover:text-gray-600 font-medium">Home</Link>
           <Link to="/products" onClick={toggleMenu} className="text-gray-700 hover:text-gray-600 font-medium">Products</Link>
           <Link to="/contact" onClick={toggleMenu} className="text-gray-700 hover:text-gray-600 font-medium">Contact</Link>
