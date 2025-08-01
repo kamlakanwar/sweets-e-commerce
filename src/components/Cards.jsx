@@ -4,7 +4,7 @@ import Card from './Card';
 const Cards = ({productData}) => {
 
   return (
-    <div className="flex flex-wrap justify-center gap-4 my-10">
+    <div className="flex flex-wrap justify-center gap-4 m-10">
       {productData.map((item) => (
         <Card key={item.id}
           id={item.id}
