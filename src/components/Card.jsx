@@ -12,7 +12,8 @@ const Card = ({ id, img, title, quantity, price }) => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300 text-center w-72 hover:scale-105">
+   <div className="flex flex-col items-center justify-center bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300 text-center 
+  w-full sm:w-[45%] lg:w-72 hover:scale-105">
       <img
         src={img}
         alt="product"
