@@ -21,7 +21,8 @@ const Navbar = () => {
   };
 
   return (
-    <div className="w-full max-w-screen-xl mx-auto bg-white shadow-md py-3 px-4 sm:px-6 md:px-12 flex items-center justify-between relative z-20">
+    <div className="w-full bg-white shadow-md">
+  <div className="max-w-screen-xl mx-auto py-3 px-4 sm:px-6 md:px-12 flex items-center justify-between relative z-20">
       {/* Logo */}
       <Link to="/">
         <img src={Logo} alt="logo" loading="lazy" className="h-13 w-14 ml-2 sm:ml-5" />
@@ -84,6 +85,7 @@ const Navbar = () => {
           </button>
         </div>
       )}
+    </div>
     </div>
   );
 };
